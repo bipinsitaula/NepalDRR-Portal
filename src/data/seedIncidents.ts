@@ -1,0 +1,695 @@
+import { Incident } from '@/types';
+
+// 150 realistic disaster incidents in Nepal spanning 2022 to 2026
+// Reflects realistic monsoon spikes (Jun-Sep) for floods/landslides, dry season fires (Mar-May), seismic shocks, and thunderbolts
+export const SEED_INCIDENTS: Incident[] = [
+  // 2026 Recent Incidents
+  {
+    id: 'inc-2026-001',
+    title: 'Flash Flood and River Bank Erosion along Melamchi River',
+    titleNepali: 'मेलम्ची नदीमा आकस्मिक बाढी तथा कटान',
+    hazardType: 'flood',
+    provinceId: 'p-3',
+    districtId: 'd-spc',
+    municipalityId: 'm-melamchi',
+    wardNumber: 11,
+    locationName: 'Melamchi Bazaar, Sindhupalchok',
+    lat: 27.832,
+    lng: 85.584,
+    dateTime: '2026-08-14T04:30:00Z',
+    status: 'response_ongoing',
+    severity: 'severe',
+    deaths: 3,
+    injured: 8,
+    missing: 2,
+    housesDestroyed: 14,
+    housesDamaged: 28,
+    livestockLost: 45,
+    estimatedLossNpr: 45000000,
+    description: 'Incessant torrential monsoon rainfall triggered a sudden surge in Melamchi river, damaging temporary flood walls and submerging market areas.',
+    responseActions: 'Nepal Army and APF deployed inflatable motorboats for evacuation. 65 displaced families shifted to Helambu high school shelter. Relief tarpaulins distributed.',
+    source: 'District Emergency Operations Center (DEOC) Sindhupalchok',
+    reportedBy: 'Kiran Shrestha (Ward 11 Officer)',
+    reporterRole: 'reporter',
+    photos: [
+      { id: 'p1', url: 'https://images.unsplash.com/photo-1547683905-f686c993aae5?auto=format&fit=crop&w=800&q=80', caption: 'Melamchi river swelling and bank collapse near bridge' },
+      { id: 'p2', url: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80', caption: 'Debris deposition on commercial riverside street' }
+    ],
+    updates: [
+      { id: 'u1', incidentId: 'inc-2026-001', title: 'Evacuation Completed', message: 'All vulnerable riverside families evacuated to designated safe shelters.', statusChange: 'response_ongoing', createdAt: '2026-08-14T09:00:00Z', authorName: 'Chief District Officer', authorRole: 'admin' },
+      { id: 'u2', incidentId: 'inc-2026-001', title: 'Water level receding', message: 'Water discharge receded below danger mark (3.8m). Search operations continuing for missing persons.', createdAt: '2026-08-15T06:00:00Z', authorName: 'Disaster Focal Person', authorRole: 'admin' }
+    ],
+    createdAt: '2026-08-14T05:00:00Z'
+  },
+  {
+    id: 'inc-2026-002',
+    title: 'Major Landslide Blockage on Prithvi Highway near Jogimara',
+    titleNepali: 'पृथ्वी राजमार्ग जोगीमारा खण्डमा ठूलो पहिरो',
+    hazardType: 'landslide',
+    provinceId: 'p-3',
+    districtId: 'd-cht',
+    municipalityId: 'm-bharatpur',
+    wardNumber: 1,
+    locationName: 'Trishuli Corridor / Jogimara sector',
+    lat: 27.81,
+    lng: 84.72,
+    dateTime: '2026-07-28T02:15:00Z',
+    status: 'resolved',
+    severity: 'moderate',
+    deaths: 1,
+    injured: 4,
+    missing: 0,
+    housesDestroyed: 2,
+    housesDamaged: 5,
+    livestockLost: 6,
+    estimatedLossNpr: 18000000,
+    description: 'Steep slope failure brought boulders and mud onto key arterial highway connecting Kathmandu. Two commercial trucks caught under mud debris.',
+    responseActions: 'Heavy excavators cleared debris after 18 hours of continuous operation. One-way traffic restored with police escort.',
+    source: 'Highway Police Post Mugling',
+    reportedBy: 'SI Ramesh Thapa',
+    reporterRole: 'reporter',
+    photos: [
+      { id: 'p3', url: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80', caption: 'Highway clearance using heavy excavators' }
+    ],
+    updates: [
+      { id: 'u3', incidentId: 'inc-2026-002', title: 'Debris Cleared', message: 'Highway opened for two-way vehicular movement. Slope stabilization nets being assessed.', statusChange: 'resolved', createdAt: '2026-07-29T10:00:00Z', authorName: 'DoR Project Manager', authorRole: 'admin' }
+    ],
+    createdAt: '2026-07-28T03:00:00Z'
+  },
+  {
+    id: 'inc-2026-003',
+    title: 'Bagmati River Inundation in Balkhu and Shankhamul Slums',
+    titleNepali: 'बल्खु र शंखमुल क्षेत्रमा बागमती नदीको डुबान',
+    hazardType: 'flood',
+    provinceId: 'p-3',
+    districtId: 'd-ktm',
+    municipalityId: 'm-ktm-metro',
+    wardNumber: 14,
+    locationName: 'Balkhu riverside settlements',
+    lat: 27.688,
+    lng: 85.295,
+    dateTime: '2026-09-02T19:40:00Z',
+    status: 'verified',
+    severity: 'moderate',
+    deaths: 0,
+    injured: 6,
+    missing: 0,
+    housesDestroyed: 8,
+    housesDamaged: 65,
+    livestockLost: 12,
+    estimatedLossNpr: 9500000,
+    description: 'Heavy precipitation exceeding 110mm in 6 hours over Shivapuri catchment caused rapid rise of Bagmati river into informal settlements.',
+    responseActions: 'Red Cross disaster response team dispatched emergency dry food packs and clean water filtration tablets to 200 families.',
+    source: 'Kathmandu Metropolitan Police & NRCS',
+    reportedBy: 'Sunita Maharjan',
+    reporterRole: 'reporter',
+    photos: [
+      { id: 'p4', url: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80', caption: 'Waterlogged houses along Balkhu corridor' }
+    ],
+    updates: [],
+    createdAt: '2026-09-02T20:30:00Z'
+  },
+  {
+    id: 'inc-2026-004',
+    title: 'Severe Thunderbolt Strike in Paddy Fields at Dhanusha',
+    titleNepali: 'धनुषामा चट्याङ्ग लागेर मानवीय क्षति',
+    hazardType: 'thunderbolt',
+    provinceId: 'p-2',
+    districtId: 'd-dhn',
+    municipalityId: 'm-janakpur',
+    wardNumber: 18,
+    locationName: 'Kuwampur farming plains',
+    lat: 26.74,
+    lng: 85.95,
+    dateTime: '2026-06-18T15:20:00Z',
+    status: 'resolved',
+    severity: 'minor',
+    deaths: 2,
+    injured: 3,
+    missing: 0,
+    housesDestroyed: 0,
+    housesDamaged: 1,
+    livestockLost: 4,
+    estimatedLossNpr: 800000,
+    description: 'Violent pre-monsoon convective storm produced cloud-to-ground lightning discharge striking farmers transplanting paddy.',
+    responseActions: 'Injured promptly transported to Janakpur Provincial Hospital via 102 emergency ambulance service.',
+    source: 'Dhanusha District Police Office',
+    reportedBy: 'Sub-Inspector Ram Chandra Yadav',
+    reporterRole: 'reporter',
+    photos: [],
+    updates: [],
+    createdAt: '2026-06-18T16:00:00Z'
+  },
+  {
+    id: 'inc-2026-005',
+    title: 'Shivapuri Nagarjun Community Forest Fire',
+    titleNepali: 'शिवपुरी नागार्जुन वन क्षेत्रमा डढेलो',
+    hazardType: 'fire_forest',
+    provinceId: 'p-3',
+    districtId: 'd-ktm',
+    municipalityId: 'm-budhanilkantha',
+    wardNumber: 3,
+    locationName: 'Tarebhir slope, Budhanilkantha',
+    lat: 27.785,
+    lng: 85.372,
+    dateTime: '2026-04-12T13:10:00Z',
+    status: 'resolved',
+    severity: 'moderate',
+    deaths: 0,
+    injured: 2,
+    missing: 0,
+    housesDestroyed: 1,
+    housesDamaged: 3,
+    livestockLost: 0,
+    estimatedLossNpr: 6200000,
+    description: 'Dry pine needle accumulation and gusty winds caused wildfire to spread over 35 hectares threatening nearby resort structures.',
+    responseActions: 'Joint firefighting operation by Nepal Army forest battalion, local youth volunteers, and water tankers.',
+    source: 'Shivapuri National Park Warden Office',
+    reportedBy: 'Bikash Tamang',
+    reporterRole: 'reporter',
+    photos: [
+      { id: 'p5', url: 'https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&w=800&q=80', caption: 'Smoke billowing from Budhanilkantha hillside' }
+    ],
+    updates: [],
+    createdAt: '2026-04-12T14:00:00Z'
+  },
+  {
+    id: 'inc-2026-006',
+    title: 'Earthquake Swarm M5.1 Shock Epicentered in Gorkha North',
+    titleNepali: 'गोरखा उत्तरी क्षेत्र केन्द्रबिन्दु ५.१ म्याग्निच्युड भूकम्प',
+    hazardType: 'earthquake',
+    provinceId: 'p-4',
+    districtId: 'd-grk',
+    municipalityId: 'm-barpak-sulikot',
+    wardNumber: 2,
+    locationName: 'Barpak upland village',
+    lat: 28.23,
+    lng: 84.74,
+    dateTime: '2026-02-19T06:42:00Z',
+    status: 'verified',
+    severity: 'moderate',
+    deaths: 0,
+    injured: 11,
+    missing: 0,
+    housesDestroyed: 5,
+    housesDamaged: 38,
+    livestockLost: 9,
+    estimatedLossNpr: 22000000,
+    description: 'Moderate shallow seismic tremor (depth 10km) caused cracks in stone-masonry buildings and initiated minor scree slides.',
+    responseActions: 'Barpak health post triage activated. Engineering teams deployed to tag red/yellow/green house safety status.',
+    source: 'National Seismological Centre & Gorkha DEOC',
+    reportedBy: 'Barpak Ward Secretary',
+    reporterRole: 'reporter',
+    photos: [],
+    updates: [],
+    createdAt: '2026-02-19T07:15:00Z'
+  },
+  {
+    id: 'inc-2026-007',
+    title: 'Narayani Riverbank Overflow in Sivasatashi / Bharatpur',
+    titleNepali: 'नारायणी नदीको सतह खतराको विन्दु पार',
+    hazardType: 'flood',
+    provinceId: 'p-3',
+    districtId: 'd-cht',
+    municipalityId: 'm-bharatpur',
+    wardNumber: 26,
+    locationName: 'Gyaneshwar community bufferzone',
+    lat: 27.65,
+    lng: 84.32,
+    dateTime: '2026-07-15T11:00:00Z',
+    status: 'verified',
+    severity: 'severe',
+    deaths: 1,
+    injured: 5,
+    missing: 1,
+    housesDestroyed: 18,
+    housesDamaged: 112,
+    livestockLost: 88,
+    estimatedLossNpr: 68000000,
+    description: 'Devghat hydro-met station recorded discharge exceeding 9,800 m3/s, causing breach of downstream gabion spurs into low-lying settlements.',
+    responseActions: 'Disaster management committee issued sirens 3 hours before peak crest, allowing successful pre-emptive evacuation of 450 people.',
+    source: 'Chitwan District Administration Office',
+    reportedBy: 'Bharatpur DRR Officer',
+    reporterRole: 'reporter',
+    photos: [],
+    updates: [],
+    createdAt: '2026-07-15T12:00:00Z'
+  },
+  {
+    id: 'inc-2026-008',
+    title: 'Major Fire in Industrial Chemical Warehouse at Birgunj',
+    titleNepali: 'वीरगञ्ज परवानीपुर रासायनिक गोदाममा भीषण आगलागी',
+    hazardType: 'fire_house',
+    provinceId: 'p-2',
+    districtId: 'd-par',
+    municipalityId: 'm-birgunj',
+    wardNumber: 21,
+    locationName: 'Parwanipur Industrial Corridor',
+    lat: 27.06,
+    lng: 84.91,
+    dateTime: '2026-03-05T21:30:00Z',
+    status: 'resolved',
+    severity: 'moderate',
+    deaths: 0,
+    injured: 7,
+    missing: 0,
+    housesDestroyed: 3,
+    housesDamaged: 8,
+    livestockLost: 0,
+    estimatedLossNpr: 35000000,
+    description: 'Electrical short circuit ignited solvent containers inside packaging plant, triggering intense toxic smoke plumes.',
+    responseActions: '5 fire brigades from Birgunj, Simara and Hetauda controlled the blaze after 7 hours using foam retardants.',
+    source: 'Birgunj Fire Service & APF Brigade',
+    reportedBy: 'Inspector Rajesh Jha',
+    reporterRole: 'reporter',
+    photos: [],
+    updates: [],
+    createdAt: '2026-03-05T22:00:00Z'
+  },
+  {
+    id: 'inc-2026-009',
+    title: 'Karnali River Flooding in Tikapur Lowlands',
+    titleNepali: 'कर्णाली नदीमा बाढी: टीकापुर तटीय क्षेत्र जलमग्न',
+    hazardType: 'flood',
+    provinceId: 'p-7',
+    districtId: 'd-kll',
+    municipalityId: 'm-tikapur',
+    wardNumber: 8,
+    locationName: 'Satti Ghat, Tikapur',
+    lat: 28.52,
+    lng: 81.12,
+    dateTime: '2026-08-22T08:15:00Z',
+    status: 'response_ongoing',
+    severity: 'severe',
+    deaths: 2,
+    injured: 9,
+    missing: 3,
+    housesDestroyed: 32,
+    housesDamaged: 140,
+    livestockLost: 120,
+    estimatedLossNpr: 54000000,
+    description: 'Karnali river water level breached warning mark (10.8m at Chisapani), overflowing into banana plantations and settlements in Tikapur and Janaki.',
+    responseActions: 'Raft rescue operations by Armed Police Force border outpost; 3 temporary medical camps operational.',
+    source: 'Kailali DEOC',
+    reportedBy: 'Tikapur Municipality Emergency Unit',
+    reporterRole: 'reporter',
+    photos: [],
+    updates: [],
+    createdAt: '2026-08-22T09:30:00Z'
+  },
+  {
+    id: 'inc-2026-010',
+    title: 'Severe Passenger Bus Collision and Fall near Mugling',
+    titleNepali: 'मुग्लिन नजिकै त्रिशुलीमा यात्रुवाहक बस दुर्घटना',
+    hazardType: 'road_accident',
+    provinceId: 'p-3',
+    districtId: 'd-cht',
+    municipalityId: 'm-bharatpur',
+    wardNumber: 29,
+    locationName: 'Chharedi bend, Prithvi Highway',
+    lat: 27.76,
+    lng: 84.55,
+    dateTime: '2026-01-14T05:20:00Z',
+    status: 'resolved',
+    severity: 'catastrophic',
+    deaths: 12,
+    injured: 24,
+    missing: 2,
+    housesDestroyed: 0,
+    housesDamaged: 0,
+    livestockLost: 0,
+    estimatedLossNpr: 12000000,
+    description: 'Overnight night bus en route from Pokhara to Kathmandu skidded on wet asphalt due to dense morning fog and plunged 80m into Trishuli gorge.',
+    responseActions: 'Joint deep-water search and rope rescue by APF Disaster Management Training School Kurintar. Survivors airlifted to Kathmandu.',
+    source: 'Armed Police Force Kurintar Base',
+    reportedBy: 'DSP Binod Aryal',
+    reporterRole: 'reporter',
+    photos: [],
+    updates: [],
+    createdAt: '2026-01-14T06:00:00Z'
+  },
+  {
+    id: 'inc-2026-011',
+    title: 'Massive Debris Flow at Helambu Ward 1',
+    titleNepali: 'हेलम्बु वडा १ मा लेदो सहितको बाढी पहिरो',
+    hazardType: 'landslide',
+    provinceId: 'p-3',
+    districtId: 'd-spc',
+    municipalityId: 'm-helambu',
+    wardNumber: 1,
+    locationName: 'Timbu settlement, Helambu',
+    lat: 27.96,
+    lng: 85.54,
+    dateTime: '2026-08-01T02:00:00Z',
+    status: 'verified',
+    severity: 'severe',
+    deaths: 4,
+    injured: 7,
+    missing: 1,
+    housesDestroyed: 11,
+    housesDamaged: 19,
+    livestockLost: 34,
+    estimatedLossNpr: 32000000,
+    description: 'Cloudburst over high altitude ridge triggered catastrophic debris slide burying homes and trout fish hatcheries.',
+    responseActions: 'Search and rescue completed. Cash relief of NPR 200,000 per deceased family distributed by Rural Municipality council.',
+    source: 'Helambu RM Chairperson Office',
+    reportedBy: 'Dawa Sherpa',
+    reporterRole: 'reporter',
+    photos: [],
+    updates: [],
+    createdAt: '2026-08-01T03:30:00Z'
+  },
+  {
+    id: 'inc-2026-012',
+    title: 'Dengue Outbreak Surge in Biratnagar Urban Cores',
+    titleNepali: 'विराटनगरमा डेंगु महामारीको उच्च जोखिम',
+    hazardType: 'epidemic',
+    provinceId: 'p-1',
+    districtId: 'd-mor',
+    municipalityId: 'm-biratnagar',
+    wardNumber: 9,
+    locationName: 'Biratnagar Central & Hospital Road',
+    lat: 26.46,
+    lng: 87.28,
+    dateTime: '2026-09-10T10:00:00Z',
+    status: 'response_ongoing',
+    severity: 'moderate',
+    deaths: 1,
+    injured: 340,
+    missing: 0,
+    housesDestroyed: 0,
+    housesDamaged: 0,
+    livestockLost: 0,
+    estimatedLossNpr: 4500000,
+    description: 'Post-flood stagnant pools led to rapid Aedes mosquito vector breeding; Koshi Hospital recorded 340 confirmed positive cases in 10 days.',
+    responseActions: 'City-wide "Search and Destroy" mosquito larvae campaigns and door-to-door paracetamol distribution initiated.',
+    source: 'Biratnagar Health Division & Koshi Hospital',
+    reportedBy: 'Dr. Anita Basnet',
+    reporterRole: 'reporter',
+    photos: [],
+    updates: [],
+    createdAt: '2026-09-10T11:00:00Z'
+  },
+  {
+    id: 'inc-2026-013',
+    title: 'Reported Hill Slope Cracking in Suryabinayak-7',
+    titleNepali: 'सूर्यविनायक ७ मा जमिन फाटिएको सूचना',
+    hazardType: 'landslide',
+    provinceId: 'p-3',
+    districtId: 'd-bkt',
+    municipalityId: 'm-suryabinayak',
+    wardNumber: 7,
+    locationName: 'Gundu hillside ridge',
+    lat: 27.63,
+    lng: 85.43,
+    dateTime: '2026-09-29T14:15:00Z',
+    status: 'reported',
+    severity: 'minor',
+    deaths: 0,
+    injured: 0,
+    missing: 0,
+    housesDestroyed: 0,
+    housesDamaged: 2,
+    livestockLost: 0,
+    estimatedLossNpr: 600000,
+    description: 'Fresh tension cracks (15-20cm wide) noticed extending 40 meters across terrace farms after continuous rainfall.',
+    responseActions: 'Geological inspection requested from Department of Mines and Geology. Residents advised to shelter in lower school.',
+    source: 'Citizen Hotline / Ward Volunteer',
+    reportedBy: 'Prakash Karki (Ward volunteer)',
+    reporterRole: 'reporter',
+    photos: [],
+    updates: [],
+    createdAt: '2026-09-29T15:00:00Z'
+  },
+  {
+    id: 'inc-2026-014',
+    title: 'Glacial Silt Surge & Sediment Jam on Seti Gorge',
+    titleNepali: 'सेती नदीमा लेदो बहाव र पानीको बहाव अवरुद्ध',
+    hazardType: 'glof',
+    provinceId: 'p-4',
+    districtId: 'd-ksk',
+    municipalityId: 'm-pokhara',
+    wardNumber: 19,
+    locationName: 'Seti River Canyon, Pokhara',
+    lat: 28.25,
+    lng: 83.99,
+    dateTime: '2026-06-30T17:45:00Z',
+    status: 'verified',
+    severity: 'moderate',
+    deaths: 0,
+    injured: 1,
+    missing: 0,
+    housesDestroyed: 1,
+    housesDamaged: 4,
+    livestockLost: 8,
+    estimatedLossNpr: 15000000,
+    description: 'High altitude moraine collapse into Seti headwaters caused muddy surge and localized canyon backwater flooding near Yamdi.',
+    responseActions: 'Early warning automated siren in Sardikhola sounded 25 minutes prior, allowing downstream gravel workers to evacuate.',
+    source: 'Pokhara Metropolitan DRR Center',
+    reportedBy: 'Deepak Bhandari',
+    reporterRole: 'reporter',
+    photos: [],
+    updates: [],
+    createdAt: '2026-06-30T18:30:00Z'
+  },
+  {
+    id: 'inc-2026-015',
+    title: 'Winter High Altitude Blizzard & Avalanche near Tilicho Trail',
+    titleNepali: 'मनाङ-कास्की सीमावर्ती पदमार्गमा हिमपहिरो',
+    hazardType: 'avalanche',
+    provinceId: 'p-4',
+    districtId: 'd-ksk',
+    municipalityId: 'm-annapurna-ksk',
+    wardNumber: 11,
+    locationName: 'Annapurna Base Camp approaches',
+    lat: 28.53,
+    lng: 83.87,
+    dateTime: '2026-01-22T10:30:00Z',
+    status: 'resolved',
+    severity: 'severe',
+    deaths: 2,
+    injured: 5,
+    missing: 0,
+    housesDestroyed: 2,
+    housesDamaged: 1,
+    livestockLost: 15,
+    estimatedLossNpr: 11000000,
+    description: 'Fresh heavy snowfall exceeding 1.2m followed by sudden temperature jump caused slab avalanche across high-altitude shepherd huts.',
+    responseActions: 'Nepal Army high altitude rescue team deployed via helicopter from Pokhara; successfully rescued 14 stranded domestic tourists.',
+    source: 'Trekking Agencies Association & Kaski Police',
+    reportedBy: 'Subash Gurung',
+    reporterRole: 'reporter',
+    photos: [],
+    updates: [],
+    createdAt: '2026-01-22T11:45:00Z'
+  }
+];
+
+// Helper to systematically generate realistic historical records (135 more incidents = 150 total)
+const HISTORICAL_TEMPLATES = [
+  {
+    hazard: 'flood' as const,
+    titles: [
+      'Inundation of riverside settlements along Koshi canal',
+      'Flash flood in local khola submerging farmland',
+      'Breach of river embankment causing agricultural loss',
+      'Urban waterlogging due to drainage choke and intense downpour',
+      'Torrential river overflow flooding low-lying wards'
+    ],
+    months: [5, 6, 7, 8], // Jun to Sep (0-indexed)
+    districts: ['d-mor', 'd-jhp', 'd-dhn', 'd-rup', 'd-cht', 'd-kll', 'd-spc', 'd-knc'],
+    severityWeights: ['moderate', 'severe', 'moderate', 'minor', 'severe'],
+    lossRange: [1500000, 25000000],
+    deathsRange: [0, 5],
+    housesDamagedRange: [10, 80],
+    housesDestroyedRange: [2, 25]
+  },
+  {
+    hazard: 'landslide' as const,
+    titles: [
+      'Slope failure blocking inter-district vehicular road',
+      'Terrace collapse burying rural settlement houses',
+      'Monsoon mudslide down steep gorge slope',
+      'Erosion and cliff slide sweeping pedestrian suspension bridge',
+      'Debris avalanche damaging drinking water supply pipeline'
+    ],
+    months: [5, 6, 7, 8], // Jun to Sep
+    districts: ['d-spc', 'd-kvr', 'd-ksk', 'd-grk', 'd-cht', 'd-srk', 'd-jml'],
+    severityWeights: ['moderate', 'severe', 'minor', 'severe', 'moderate'],
+    lossRange: [800000, 18000000],
+    deathsRange: [0, 4],
+    housesDamagedRange: [3, 20],
+    housesDestroyedRange: [1, 12]
+  },
+  {
+    hazard: 'fire_forest' as const,
+    titles: [
+      'Community forest wildfire spreading across dry pine ridge',
+      'Uncontrolled forest fire threatening village buffer zone',
+      'Hillside brush fire burning through sal timber woodland',
+      'Spring season dry woodland fire damaging transmission poles'
+    ],
+    months: [2, 3, 4], // Mar to May
+    districts: ['d-cht', 'd-dng', 'd-srk', 'd-kvr', 'd-ksk', 'd-rup'],
+    severityWeights: ['minor', 'moderate', 'moderate', 'minor'],
+    lossRange: [500000, 8000000],
+    deathsRange: [0, 1],
+    housesDamagedRange: [0, 5],
+    housesDestroyedRange: [0, 2]
+  },
+  {
+    hazard: 'fire_house' as const,
+    titles: [
+      'Nighttime kitchen fire spreading across dense thatched houses',
+      'Electrical short-circuit fire in commercial market store',
+      'Accidental gas cylinder blast causing residential fire',
+      'Barn fire spreading to adjacent cattle sheds'
+    ],
+    months: [0, 1, 2, 3, 10, 11], // Winter and dry season
+    districts: ['d-ktm', 'd-lal', 'd-bkt', 'd-par', 'd-mor', 'd-dhn', 'd-rup'],
+    severityWeights: ['moderate', 'minor', 'severe', 'moderate'],
+    lossRange: [1200000, 14000000],
+    deathsRange: [0, 2],
+    housesDamagedRange: [1, 10],
+    housesDestroyedRange: [1, 6]
+  },
+  {
+    hazard: 'thunderbolt' as const,
+    titles: [
+      'Lightning strike on rural homestead during thunderstorm',
+      'Fatal lightning strike on open pasture',
+      'Thunderbolt hitting electrical transformer and nearby shelter'
+    ],
+    months: [3, 4, 5, 8], // April to June, Sep
+    districts: ['d-dhn', 'd-mor', 'd-jhp', 'd-rup', 'd-dng', 'd-kll'],
+    severityWeights: ['minor', 'minor', 'moderate'],
+    lossRange: [200000, 1500000],
+    deathsRange: [1, 3],
+    housesDamagedRange: [1, 3],
+    housesDestroyedRange: [0, 1]
+  },
+  {
+    hazard: 'earthquake' as const,
+    titles: [
+      'Magnitude 4.8 seismic tremor causing cracks in school buildings',
+      'Shallow tectonic tremor triggering panic and wall collapses',
+      'Seismic jolt inducing minor rockfalls on mountain road'
+    ],
+    months: [0, 2, 4, 7, 10], // Random distributed
+    districts: ['d-grk', 'd-spc', 'd-kvr', 'd-srk', 'd-jml', 'd-ksk'],
+    severityWeights: ['moderate', 'minor', 'moderate'],
+    lossRange: [3000000, 30000000],
+    deathsRange: [0, 2],
+    housesDamagedRange: [8, 60],
+    housesDestroyedRange: [1, 15]
+  },
+  {
+    hazard: 'road_accident' as const,
+    titles: [
+      'Jeep rollover on treacherous unpaved rural road',
+      'Heavy freight truck brake failure at hairpin turn',
+      'Microbus collision along highway due to low visibility'
+    ],
+    months: [0, 1, 6, 7, 11], // Monsoon slippery & winter fog
+    districts: ['d-cht', 'd-spc', 'd-kvr', 'd-ksk', 'd-srk', 'd-dng'],
+    severityWeights: ['moderate', 'severe', 'moderate'],
+    lossRange: [1000000, 9000000],
+    deathsRange: [1, 8],
+    housesDamagedRange: [0, 1],
+    housesDestroyedRange: [0, 0]
+  }
+];
+
+// District to default municipality and lat/lng mapper
+const DISTRICT_META: Record<string, { province: string; muni: string; lat: number; lng: number }> = {
+  'd-ktm': { province: 'p-3', muni: 'm-ktm-metro', lat: 27.7172, lng: 85.324 },
+  'd-lal': { province: 'p-3', muni: 'm-lal-metro', lat: 27.6667, lng: 85.3167 },
+  'd-bkt': { province: 'p-3', muni: 'm-bkt-muni', lat: 27.671, lng: 85.4298 },
+  'd-spc': { province: 'p-3', muni: 'm-melamchi', lat: 27.83, lng: 85.58 },
+  'd-kvr': { province: 'p-3', muni: 'm-dhulikhel', lat: 27.62, lng: 85.55 },
+  'd-cht': { province: 'p-3', muni: 'm-bharatpur', lat: 27.68, lng: 84.43 },
+  'd-ksk': { province: 'p-4', muni: 'm-pokhara', lat: 28.21, lng: 83.99 },
+  'd-grk': { province: 'p-4', muni: 'm-gorkha-muni', lat: 28.0, lng: 84.63 },
+  'd-mor': { province: 'p-1', muni: 'm-biratnagar', lat: 26.45, lng: 87.27 },
+  'd-jhp': { province: 'p-1', muni: 'm-damak', lat: 26.67, lng: 87.7 },
+  'd-dhn': { province: 'p-2', muni: 'm-janakpur', lat: 26.73, lng: 85.92 },
+  'd-par': { province: 'p-2', muni: 'm-birgunj', lat: 27.01, lng: 84.88 },
+  'd-rup': { province: 'p-5', muni: 'm-butwal', lat: 27.7, lng: 83.45 },
+  'd-dng': { province: 'p-5', muni: 'm-ghorahi', lat: 28.04, lng: 82.49 },
+  'd-srk': { province: 'p-6', muni: 'm-birendranagar', lat: 28.6, lng: 81.63 },
+  'd-jml': { province: 'p-6', muni: 'm-chandannath', lat: 29.27, lng: 82.18 },
+  'd-kll': { province: 'p-7', muni: 'm-dhangadhi', lat: 28.7, lng: 80.6 },
+  'd-knc': { province: 'p-7', muni: 'm-bhimdatta', lat: 28.97, lng: 80.18 },
+};
+
+function generateRemainingIncidents(): Incident[] {
+  const generated: Incident[] = [];
+  const years = [2022, 2023, 2024, 2025, 2026];
+  let idCounter = 16;
+
+  // We want to generate ~135 more realistic items to reach ~150 total
+  for (let i = 0; i < 135; i++) {
+    const template = HISTORICAL_TEMPLATES[i % HISTORICAL_TEMPLATES.length];
+    const year = years[i % years.length];
+    const month = template.months[i % template.months.length];
+    const day = ((i * 7 + 3) % 27) + 1;
+    const hour = ((i * 5 + 2) % 22) + 1;
+    const minute = (i * 13) % 60;
+    const districtId = template.districts[i % template.districts.length];
+    const meta = DISTRICT_META[districtId] || DISTRICT_META['d-ktm'];
+
+    // Slight coordinate jitter around district centroid (approx 5-15km)
+    const latOffset = (((i * 17) % 100) - 50) / 1000;
+    const lngOffset = (((i * 23) % 100) - 50) / 1000;
+
+    const titleBase = template.titles[i % template.titles.length];
+    const severity = template.severityWeights[i % template.severityWeights.length] as any;
+    const deaths = Math.floor(template.deathsRange[0] + ((i * 11) % (template.deathsRange[1] - template.deathsRange[0] + 1)));
+    const injured = Math.floor(deaths * 2.5 + ((i * 3) % 8));
+    const missing = deaths > 2 && i % 3 === 0 ? 1 : 0;
+    const housesDestroyed = Math.floor(template.housesDestroyedRange[0] + ((i * 9) % (template.housesDestroyedRange[1] - template.housesDestroyedRange[0] + 1)));
+    const housesDamaged = Math.floor(template.housesDamagedRange[0] + ((i * 13) % (template.housesDamagedRange[1] - template.housesDamagedRange[0] + 1)));
+    const livestockLost = template.hazard === 'flood' || template.hazard === 'landslide' ? Math.floor(((i * 7) % 40) + 2) : 0;
+    const estimatedLoss = Math.floor(template.lossRange[0] + ((i * 1234567) % (template.lossRange[1] - template.lossRange[0])));
+
+    const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}T${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}:00Z`;
+
+    generated.push({
+      id: `inc-${year}-${String(idCounter++).padStart(3, '0')}`,
+      title: `${titleBase} (${year})`,
+      hazardType: template.hazard,
+      provinceId: meta.province,
+      districtId: districtId,
+      municipalityId: meta.muni,
+      wardNumber: ((i * 3) % 12) + 1,
+      locationName: `Ward ${((i * 3) % 12) + 1}, ${meta.muni.replace('m-', '').replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())}`,
+      lat: Number((meta.lat + latOffset).toFixed(4)),
+      lng: Number((meta.lng + lngOffset).toFixed(4)),
+      dateTime: dateStr,
+      status: i % 15 === 0 ? 'response_ongoing' : i % 8 === 0 ? 'verified' : 'resolved',
+      severity: severity,
+      deaths: deaths,
+      injured: injured,
+      missing: missing,
+      housesDestroyed: housesDestroyed,
+      housesDamaged: housesDamaged,
+      livestockLost: livestockLost,
+      estimatedLossNpr: estimatedLoss,
+      description: `Historical incident recorded by local municipal disaster management desk. Affected ${housesDestroyed + housesDamaged} structures in the locality. Initial relief and assessment coordinated with Red Cross and local security personnel.`,
+      responseActions: 'Local authorities distributed dry rations, tarpaulins, and provided emergency medical assistance.',
+      source: 'Ministry of Home Affairs / NEOC / Local DEOC archive',
+      reportedBy: 'Municipal DRR Desk',
+      reporterRole: 'reporter',
+      photos: [],
+      updates: [],
+      createdAt: dateStr
+    });
+  }
+
+  return generated;
+}
+
+export const ALL_SEED_INCIDENTS: Incident[] = [
+  ...SEED_INCIDENTS,
+  ...generateRemainingIncidents()
+];
